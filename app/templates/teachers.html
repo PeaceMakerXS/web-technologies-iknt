@@ -1,0 +1,20 @@
+{% extends "base/base.html" %}
+
+{% block title %}Преподаватели{% endblock %}
+
+{% block content %}
+    <h1>Институт компьютерных наук и технологий</h1>
+
+    <h2>Преподаватели</h2>
+    <div class="container">
+        {% for teacher in teachers %}
+            <div class="card">
+                <img src="{{ url_for('static', filename=teacher.img) }}" alt="{{ teacher.title }}" class="card-image">
+                <div class="card-description">
+                    <div class="card-title">{{ teacher.title }}</div>
+                    <div class="card-text">{{ teacher.description_teacher }}</div>
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+{% endblock %}

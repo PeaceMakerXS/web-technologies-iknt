@@ -1,0 +1,656 @@
+/**/
+/*Шрифт заголовка*/
+@font-face {
+    font-family: 'heading_font'; 
+    src: url('fonts/PermianSlabSerifTypeface-Bold.otf'); 
+}
+/*Шрифт текста*/
+@font-face {
+    font-family: 'font';
+    src: url('fonts/PermianSansTypeface.otf');
+}
+/*Шрифт кнопок и жирного текста*/
+@font-face {
+    font-family: 'button_font';
+    src: url('fonts/PermianSansTypeface-Bold.otf');
+}
+
+/*Тело*/
+body {
+    margin: 0; /* Убираем отступы по умолчанию */
+    font-family: 'font', Arial; /* Шрифт для всего текста */
+    font-size: 20px;
+    color:#101910;
+    background-color: #FFF; /* Цвет фона */
+    display: flex; /* Используем Flexbox для вертикального выравнивания */
+    flex-direction: column; /* Вертикальное расположение элементов */
+    justify-content: center; /* Центрирование по вертикали */
+}
+
+/* Общий стиль для всех изображений */
+img {
+    border-radius: 10px; /* Закругленные углы для всех изображений */
+    display: block; /* Блочное отображение для правильного применения стилей */
+}
+/*Заголовок*/
+h1 {
+    font-family: 'heading_font', Arial;
+    color:#1A66FF;
+    text-align: center; 
+}
+/*Подзаголовок*/
+h2 {
+    font-family: 'heading_font', Arial;
+    color:#000000;
+    text-align: center; 
+}
+/*Контейнер*/
+.container {
+    display: flex;
+    flex-direction: column; /* Вертикальное расположение карточек */
+    align-items: center; /* Центрирование карточек по горизонтали */
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    max-width: calc(100% - 192px); /* Максимальная ширина контейнера */
+    margin: 24px auto; /* Центрирование контейнера */
+    background-color: white; /* Белый фон */
+    border-radius: 16px; /* Закругленные углы */
+    padding: 20px 0; /* Внутренний вертикальный отступ */
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.03); /* Очень легкая тень */
+}
+/*Контейнер текст*/
+.text {
+    font-family: 'font', Arial;
+    color:#000000;
+    display: flex; /* Используем Flexbox */
+    flex-direction: column; /* Изменено с row на column для вертикального расположения */
+    align-items: flex-start; /* Выравнивание по левому краю */
+    margin: 24px 96px;
+}
+/*Описание текст*/
+.description {
+    font-family: 'font', Arial;
+    color:#000000;
+    align-items: center; /* Выравнивание по центру по вертикали */
+    margin: 24px 96px;
+}
+
+/* Стили для цитаты */
+.quote {
+    position: relative;
+    font-family: 'font', Arial;
+    font-style: italic;
+    background-color: #f9f9f9;
+    border-left: 4px solid #1A66FF;
+    margin: 20px 0;
+    padding: 24px 24px 24px 40px;
+    border-radius: 4px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.quote p {
+    margin: 0 0 16px 0;
+    font-size: 22px;
+    line-height: 1.5;
+    color: #333;
+}
+
+.quote cite {
+    display: block;
+    font-style: normal;
+    font-weight: bold;
+    font-family: 'button_font', Arial;
+    text-align: right;
+    color: #1A66FF;
+    font-size: 18px;
+    margin-top: 8px;
+}
+
+.quote:before {
+    content: open-quote;
+    position: absolute;
+    left: 10px;
+    top: 5px;
+    font-size: 60px;
+    color: #1A66FF;
+    opacity: 0.3;
+    font-family: Georgia, serif;
+}
+
+.quote:after {
+    content: close-quote;
+    position: absolute;
+    right: 10px;
+    bottom: -10px;
+    font-size: 60px;
+    color: #1A66FF;
+    opacity: 0.3;
+    font-family: Georgia, serif;
+}
+
+/* Стили для страницы контактов */
+.contacts-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 25px;
+    max-width: 1200px;
+    margin: 40px auto;
+    padding: 0 20px;
+}
+
+.contact-card {
+    background-color: #ffffff;
+    border-radius: 15px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+    overflow: hidden;
+    width: 300px;
+    transition: all 0.3s ease;
+    border-top: 5px solid #1A66FF;
+}
+
+.contact-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 10px 25px rgba(26, 102, 255, 0.2);
+}
+
+.contact-card-header {
+    background-color: #f5f8ff;
+    padding: 20px;
+    display: flex;
+    align-items: center;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+.contact-icon {
+    width: 40px;
+    height: 40px;
+    margin-right: 15px;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+}
+
+.location-icon {
+    background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="%231A66FF"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>');
+}
+
+.phone-icon {
+    background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="%231A66FF"><path d="M20 15.5c-1.25 0-2.45-.2-3.57-.57-.35-.11-.74-.03-1.02.24l-2.2 2.2c-2.83-1.44-5.15-3.75-6.59-6.59l2.2-2.21c.28-.26.36-.65.25-1C8.7 6.45 8.5 5.25 8.5 4c0-.55-.45-1-1-1H4c-.55 0-1 .45-1 1 0 9.39 7.61 17 17 17 .55 0 1-.45 1-1v-3.5c0-.55-.45-1-1-1zM12 3v10l3-3h6V3h-9z"/></svg>');
+}
+
+.email-icon {
+    background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="%231A66FF"><path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>');
+}
+
+.clock-icon {
+    background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="%231A66FF"><path d="M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zM12 20c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8zm.5-13H11v6l5.25 3.15.75-1.23-4.5-2.67z"/></svg>');
+}
+
+.info-icon {
+    background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="%231A66FF"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-6h2v6zm0-8h-2V7h2v2z"/></svg>');
+}
+
+.contact-title {
+    font-family: 'heading_font', Arial;
+    color: #1A66FF;
+    margin: 0;
+    font-size: 20px;
+    font-weight: 600;
+}
+
+.contact-card-content {
+    padding: 20px;
+}
+
+.contact-text {
+    font-family: 'font', Arial;
+    color: #333;
+    margin: 5px 0;
+    font-size: 16px;
+    line-height: 1.5;
+}
+
+.contact-day {
+    font-family: 'button_font', Arial;
+    color: #666;
+    display: inline-block;
+    width: 70px;
+}
+
+.contact-link {
+    color: #1A66FF;
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 16px;
+    transition: color 0.3s ease;
+    display: inline-block;
+    position: relative;
+}
+
+.contact-link:after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    transform: scaleX(0);
+    height: 2px;
+    bottom: -3px;
+    left: 0;
+    background-color: #1A66FF;
+    transform-origin: bottom right;
+    transition: transform 0.3s ease-out;
+}
+
+.contact-link:hover {
+    color: #0044cc;
+}
+
+.contact-link:hover:after {
+    transform: scaleX(1);
+    transform-origin: bottom left;
+}
+
+.map-container {
+    max-width: 1200px;
+    margin: 50px auto;
+    padding: 0 20px;
+}
+
+.map-title {
+    font-family: 'heading_font', Arial;
+    color: #1A66FF;
+    text-align: center;
+    margin-bottom: 30px;
+    font-size: 28px;
+}
+
+.map-placeholder {
+    background-color: #f5f8ff;
+    border-radius: 15px;
+    height: 400px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 2px dashed #1A66FF;
+    color: #1A66FF;
+    font-family: 'font', Arial;
+    font-size: 20px;
+}
+
+.map-content {
+    border-radius: 15px;
+    width: 100%;
+    height: 450px;
+    overflow: hidden;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+}
+
+/* Адаптивность для мобильных устройств */
+@media (max-width: 768px) {
+    .contacts-container {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .contact-card {
+        width: 100%;
+        max-width: 350px;
+    }
+}
+
+/* Старые стили для совместимости */
+.contact-container {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    margin-bottom: 30px;
+    overflow: hidden; /* Обеспечивает соблюдение border-radius */
+}
+
+.contact-section-title {
+    font-family: 'heading_font', Arial;
+    color: #1A66FF;
+    margin: 25px 0 10px 0;
+    font-size: 24px;
+    border-bottom: 2px solid #1A66FF;
+    padding-bottom: 5px;
+    display: inline-block;
+}
+
+.contact-info {
+    margin-left: 20px;
+}
+
+.contact-info p {
+    margin: 8px 0;
+    line-height: 1.5;
+}
+
+.contact-label {
+    font-family: 'button_font', Arial;
+    font-weight: bold;
+    color: #333;
+    margin-right: 5px;
+    min-width: 160px;
+    display: inline-block;
+}
+
+/*Дизайн хедера*/
+.menu_header {
+    display: flex; /* Используем Flexbox для вертикального выравнивания */
+    justify-content: flex-end; /* Центрирование по вертикали */
+    margin: 12px 24px;
+}
+.menu_header a {
+    color:#101910;
+    text-decoration: none; /* Убираем подчеркивание */
+    margin-left: 12px; /* Отступ между кнопками */
+}
+.cover_header {
+    background: url(pictures/cover.jpg) no-repeat center/cover;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    height: 400px; /* Высота шапки */
+    width: 100%; /* Ширина элемента на 100% */
+    image-rendering: -webkit-optimize-contrast; /* для улучшения резкости в Chrome */
+    image-rendering: crisp-edges; /* для улучшения резкости в Firefox */
+}
+
+
+/*Дизайн футера*/
+footer {
+    background-color: #1A66FF;
+    display: flex;
+    justify-content:space-between;
+    height: 200px;
+}
+.text_footer {
+    color:white;
+    text-align: left;
+    display: flex; /* Используем Flexbox для вертикального выравнивания */
+    justify-content: flex-start; /* Выравниваем по горизонтали влево */
+    margin: 12px 96px;
+}
+.right_footer {
+    display: flex; /* Используем Flexbox для вертикального выравнивания */
+    flex-direction: row;
+    margin: 0 96px;
+}
+.menu_footer {
+    display: flex; /* Используем Flexbox для вертикального выравнивания */
+    flex-direction: column; /* Вертикальное расположение элементов */
+    justify-content:flex-start;
+    margin: 12px 24px;
+}
+.menu_footer a {
+    color:white;
+    text-decoration: none; /* Убираем подчеркивание */
+    margin-left: 12px; /* Отступ между кнопками */
+}
+
+/*Дизайн контента*/
+.images {
+    display: flex;
+    margin: 24px 48px;
+}
+.images img {
+    margin: 0 24px;
+    width: 450px;
+    height: 300px;
+}
+
+/*Дизайн карточки*/
+.card {
+    display: flex; /* Используем Flexbox для расположения элементов */
+    flex-direction: row; /* Горизонтальное расположение элементов */
+    align-items: flex-start; /* Выравнивание элементов по верхнему краю */
+    width: 80%; /* Ограничение ширины карточки до 80% */
+    max-width: 800px; /* Максимальная ширина карточки */
+    margin: 20px 0; /* Отступы сверху и снизу, без боковых отступов */
+    box-sizing: border-box; /* Учитываем отступы и границы в ширине */
+    padding: 20px; /* Увеличенный внутренний отступ */
+    background-color: #f9f9f9; /* Лёгкий фон для карточки */
+    border-radius: 12px; /* Закругленные углы для карточки */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05); /* Лёгкая тень для карточки */
+    transition: all 0.3s ease; /* Плавный переход */
+}
+
+.card:hover {
+    background-color: #f2f7ff; /* Изменение фона при наведении */
+    box-shadow: 0 5px 15px rgba(26, 102, 255, 0.1); /* Более заметная тень при наведении */
+}
+.card-image {
+    width: 200px;
+    height: 250px;
+    object-fit: cover; /* Сохранение пропорций изображения */
+    margin-right: 10px; /* Отступ справа от изображения */
+}
+.card-description {
+    display: flex; /* Используем Flexbox для расположения элементов */
+    flex-direction: column; /* Вертикальное расположение элементов */   
+    justify-content: flex-start; /* Выравнивание элементов по верхнему краю */
+    overflow: hidden; /* Обеспечивает соблюдение border-radius */
+}
+.card-title {
+    color: #1A66FF; /* Синий цвет текста */
+    font-family: 'heading_font', Arial; /* Шрифт заголовков */
+    font-size: 22px; /* Увеличенный размер шрифта */
+    margin: 0 0 10px 0; /* Добавлен нижний отступ */
+    padding-bottom: 5px; /* Добавлен отступ снизу */
+    border-bottom: 1px solid rgba(26, 102, 255, 0.2); /* Лёгкое подчеркивание */
+}
+
+.card-text {
+    color: #333333; /* Тёмно-серый цвет текста */
+    font-size: 16px; /* Размер шрифта */
+    line-height: 1.5; /* Увеличенная высота строки для лучшей читаемости */
+    margin: 8px 0; /* Увеличенные отступы сверху и снизу */
+    white-space: pre-wrap; /* Сохраняет пробелы и переносы строк */
+}
+
+/* Медиа-запрос для адаптации на мобильных устройствах */
+@media (max-width: 768px) {
+    .card {
+        width: 95%; /* Почти полная ширина на мобильных */
+        flex-direction: column; /* Вертикальное расположение на мобильных */
+        align-items: center; /* Центрирование содержимого */
+        padding: 15px;
+    }
+
+    .card-image {
+        width: 100%; /* Полная ширина картинки */
+        max-width: 300px; /* Максимальная ширина */
+        height: auto; /* Высота подстраивается */
+        margin: 0 0 15px 0; /* Отступ только снизу */
+    }
+
+    .card-description {
+        width: 100%; /* Полная ширина описания */
+        text-align: center; /* Центрирование текста */
+    }
+}
+
+/* Стили для страницы новостей с полноэкранными изображениями */
+.news-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.news-card {
+    background-color: #ffffff;
+    border-radius: 15px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+    overflow: hidden;
+    width: 100%;
+    margin-bottom: 30px;
+    transition: all 0.3s ease;
+}
+
+.news-card:hover {
+    box-shadow: 0 10px 25px rgba(26, 102, 255, 0.2);
+}
+
+.news-image-container {
+    width: 100%;
+    position: relative;
+    overflow: hidden;
+    cursor: pointer;
+}
+
+.news-image {
+    width: 100%;
+    height: 350px;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+    border-radius: 15px 15px 0 0;
+}
+
+.news-image-container:hover .news-image {
+    transform: scale(1.05);
+}
+
+.news-image-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to bottom, rgba(0,0,0,0) 60%, rgba(0,0,0,0.7) 100%);
+    display: flex;
+    align-items: flex-end;
+    padding: 20px;
+    box-sizing: border-box;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.news-image-container:hover .news-image-overlay {
+    opacity: 1;
+}
+
+.expand-icon {
+    color: white;
+    font-size: 24px;
+    background: rgba(0, 0, 0, 0.5);
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+}
+
+.news-content {
+    padding: 25px;
+}
+
+.news-title {
+    font-family: 'heading_font', Arial;
+    color: #1A66FF;
+    font-size: 24px;
+    margin-bottom: 15px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid rgba(26, 102, 255, 0.2);
+}
+
+.news-text {
+    font-family: 'font', Arial;
+    color: #333;
+    font-size: 18px;
+    line-height: 1.6;
+}
+
+/* Модальное окно для полноэкранного просмотра */
+.modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.9);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease;
+}
+
+.modal.active {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+.modal-content {
+    max-width: 90%;
+    max-height: 90%;
+    position: relative;
+}
+
+.modal-image {
+    max-width: 100%;
+    max-height: 90vh;
+    object-fit: contain;
+    border-radius: 5px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+}
+
+.modal-close {
+    position: absolute;
+    top: -40px;
+    right: 0;
+    color: white;
+    font-size: 30px;
+    cursor: pointer;
+    background: none;
+    border: none;
+    padding: 0;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: transform 0.3s ease;
+}
+
+.modal-close:hover {
+    transform: scale(1.2);
+}
+
+.modal-prev,
+.modal-next {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    color: white;
+    font-size: 30px;
+    cursor: pointer;
+    background: rgba(0, 0, 0, 0.5);
+    border: none;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background 0.3s ease;
+}
+
+.modal-prev {
+    left: 20px;
+}
+
+.modal-next {
+    right: 20px;
+}
+
+.modal-prev:hover,
+.modal-next:hover {
+    background: rgba(26, 102, 255, 0.8);
+}

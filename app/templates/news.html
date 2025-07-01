@@ -1,0 +1,91 @@
+{% extends "base/base.html" %}
+
+{% block title %}Новости{% endblock %}
+
+{% block content %}
+    <h1>Институт компьютерных наук и технологий</h1>
+
+    <h2>Новости</h2>
+    <div class="news-container">
+        {% for new in news %}
+            <div class="news-card">
+                <div class="news-image-container" onclick="openModal('{{ url_for('static', filename=new.img) }}', {{ loop.index0 }})">
+                    <img src="{{ url_for('static', filename=new.img) }}" alt="{{ new.title }}" class="news-image">
+                    <div class="news-image-overlay">
+                        <div class="expand-icon">⤢</div>
+                    </div>
+                </div>
+                <div class="news-content">
+                    <div class="news-title">{{ new.title }}</div>
+                    <div class="news-text">{{ new.description_new }}</div>
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+
+    <!-- Модальное окно для полноэкранного просмотра -->
+    <div class="modal" id="imageModal">
+        <div class="modal-content">
+            <button class="modal-close" onclick="closeModal()">✕</button>
+            <button class="modal-prev" onclick="changeImage(-1)">❮</button>
+            <img id="modalImage" class="modal-image" src="" alt="Полноэкранное изображение">
+            <button class="modal-next" onclick="changeImage(1)">❯</button>
+        </div>
+    </div>
+
+    <!-- JavaScript для работы с модальным окном -->
+    <script>
+        let currentImageIndex = 0;
+        const images = [
+            {% for new in news %}
+                "{{ url_for('static', filename=new.img) }}"{% if not loop.last %},{% endif %}
+            {% endfor %}
+        ];
+
+        function openModal(imageSrc, index) {
+            const modal = document.getElementById('imageModal');
+            const modalImg = document.getElementById('modalImage');
+
+            modalImg.src = imageSrc;
+            currentImageIndex = index;
+
+            modal.classList.add('active');
+            document.body.style.overflow = 'hidden'; // Запрет прокрутки страницы
+        }
+
+        function closeModal() {
+            const modal = document.getElementById('imageModal');
+            modal.classList.remove('active');
+            document.body.style.overflow = ''; // Возврат прокрутки страницы
+        }
+
+        function changeImage(direction) {
+            currentImageIndex = (currentImageIndex + direction + images.length) % images.length;
+            document.getElementById('modalImage').src = images[currentImageIndex];
+        }
+
+        // Закрытие модального окна при клике вне изображения
+        document.getElementById('imageModal').addEventListener('click', function(event) {
+            if (event.target === this) {
+                closeModal();
+            }
+        });
+
+        // Обработка клавиш клавиатуры
+        document.addEventListener('keydown', function(event) {
+            if (!document.getElementById('imageModal').classList.contains('active')) return;
+
+            switch(event.key) {
+                case 'Escape':
+                    closeModal();
+                    break;
+                case 'ArrowLeft':
+                    changeImage(-1);
+                    break;
+                case 'ArrowRight':
+                    changeImage(1);
+                    break;
+            }
+        });
+    </script>
+{% endblock %}

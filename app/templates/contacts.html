@@ -1,0 +1,69 @@
+{% extends "base/base.html" %}
+
+{% block title %}Контакты{% endblock %}
+
+{% block content %}
+<h1>Институт компьютерных наук и технологий</h1>
+
+<h2>Контакты</h2>
+
+<div class="contacts-container">
+    <div class="contact-card">
+        <div class="contact-card-header">
+            <i class="contact-icon location-icon"></i>
+            <h3 class="contact-title">Адрес</h3>
+        </div>
+        <div class="contact-card-content">
+            <p class="contact-text">г. Пермь, ул. Генкеля, корп. 8, ауд.410</p>
+        </div>
+    </div>
+
+    <div class="contact-card">
+        <div class="contact-card-header">
+            <i class="contact-icon phone-icon"></i>
+            <h3 class="contact-title">Телефон</h3>
+        </div>
+        <div class="contact-card-content">
+            <a href="tel:+73422396720" class="contact-link">+7 (342) 239-67-20</a>
+        </div>
+    </div>
+
+    <div class="contact-card">
+        <div class="contact-card-header">
+            <i class="contact-icon email-icon"></i>
+            <h3 class="contact-title">Электронная почта</h3>
+        </div>
+        <div class="contact-card-content">
+            <a href="mailto:iknt@psu.ru" class="contact-link">iknt@psu.ru</a>
+        </div>
+    </div>
+
+    <div class="contact-card">
+        <div class="contact-card-header">
+            <i class="contact-icon clock-icon"></i>
+            <h3 class="contact-title">Часы работы</h3>
+        </div>
+        <div class="contact-card-content">
+            <p class="contact-text"><span class="contact-day">Пн - Пт:</span> 8:00 - 17:00</p>
+            <p class="contact-text"><span class="contact-day">Сб - Вс:</span> Выходной</p>
+        </div>
+    </div>
+
+    <div class="contact-card">
+        <div class="contact-card-header">
+            <i class="contact-icon info-icon"></i>
+            <h3 class="contact-title">По вопросам поступления</h3>
+        </div>
+        <div class="contact-card-content">
+            <a href="mailto:ict_pk@psu.ru" class="contact-link">ict_pk@psu.ru</a>
+        </div>
+    </div>
+</div>
+
+<div class="map-container">
+    <h3 class="map-title">Мы на карте</h3>
+    <div class="map-content">
+        <iframe src="https://www.google.com/maps/embed?pb=!1m16!1m12!1m3!1d2113.809797336251!2d56.18360657742688!3d58.0079887740016!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!2m1!1z0LMuINCf0LXRgNC80YwsINGD0LsuINCT0LXQvdC60LXQu9GPLCDQutC-0YDQvy4gOCwg0LDRg9C0LjQxMA!5e0!3m2!1sru!2sru!4v1751369637328!5m2!1sru!2sru" width="100%" height="450" style="border:0; border-radius:15px;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+    </div>
+</div>
+{% endblock %}
